@@ -36,6 +36,13 @@ export const App = () => {
 		if (filterByState !== '') {
 			sortedUsers = sortedUsers.filter(u => u.state === filterByState);
 		}
+		if (input !== '') {
+			sortedUsers = sortedUsers.filter(
+				u =>
+					u.lastName.toLowerCase().includes(input.toLowerCase()) ||
+					u.firstName.toLowerCase().includes(input.toLowerCase())
+			);
+		}
 		if (sortBy !== null) {
 			sortedUsers.sort((a, b) => {
 				if (a[sortBy] < b[sortBy]) {
@@ -49,20 +56,17 @@ export const App = () => {
 		}
 
 		return sortedUsers;
-	}, [users, sortBy, sortingOrder, filterByState]);
+	}, [users, sortBy, sortingOrder, filterByState, input]);
 
-	// pagination:
 	const lastUser = currentPage * usersPerPage;
 	const firstUser = lastUser - usersPerPage;
 	const currentUsers = usersToSort.slice(firstUser, lastUser);
 
 	const paginate = (page: number) => setCurrentPage(page);
-
 	const headerClick = (name: any) => {
 		setSortBy(name);
 		setSortingOrder(sortingOrder === 'asc' ? 'desc' : 'asc');
 	};
-
 	const rowClick = (index: number) => setCurrentUserIndex(index);
 	const btnClick = (action: string, num: number, maxNum: number) => {
 		if (action === 'incr' && num < maxNum) {
@@ -72,18 +76,11 @@ export const App = () => {
 			setCurrentPage(num - 1);
 		}
 	};
-
-	const filteredUsers = currentUsers.filter(
-		u =>
-			u.lastName.toLowerCase().includes(input.toLowerCase()) ||
-			u.firstName.toLowerCase().includes(input.toLowerCase())
-	);
+	const onSelect = (value: string) => setFilterByState(value);
 
 	const selectStateOptions = Array.from(
 		new Set(users.map((u: User) => u.adress.state))
 	).sort();
-
-	const onSelect = (value: string) => setFilterByState(value);
 
 	return (
 		<div className={styleNames('root')}>
@@ -95,22 +92,24 @@ export const App = () => {
 			</div>
 
 			<Table
-				data={filteredUsers}
+				data={currentUsers}
 				order={sortingOrder}
 				input={input}
 				currentUserIndex={currentUserIndex}
 				headerClick={headerClick}
 				rowClick={rowClick}
 			/>
-			<Pagination
-				usersLength={users.length}
-				usersPerPage={usersPerPage}
-				currentPage={currentPage}
-				paginationOnClick={paginate}
-				btnClick={btnClick}
-			/>
+			{usersToSort.length < 21 ? null : (
+				<Pagination
+					usersLength={usersToSort.length}
+					usersPerPage={usersPerPage}
+					currentPage={currentPage}
+					paginationOnClick={paginate}
+					btnClick={btnClick}
+				/>
+			)}
 
-			<Profile user={filteredUsers[currentUserIndex]} />
+			<Profile user={currentUsers[currentUserIndex]} />
 		</div>
 	);
 };
