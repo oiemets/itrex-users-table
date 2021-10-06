@@ -1,0 +1,60 @@
+.table {
+	border-collapse: collapse;
+	width: 100%;
+	border: 2px solid #1abc9c;
+}
+
+.thead {
+	background: #1abc9c;
+	color: white;
+	text-transform: uppercase;
+	box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.5),
+		0px 1px 0px rgba(255, 255, 255, 0.8);
+	text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.th {
+	position: relative;
+	font-weight: 700;
+}
+
+.th,
+.td {
+	text-align: center;
+	padding: 5px 0;
+}
+
+.tbody .tr:hover {
+	background: #bdc3c7;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.active-row {
+	background: #bdc3c7;
+	color: #ffffff;
+}
+
+.arrow {
+	display: inline-block;
+	position: absolute;
+	bottom: 40%;
+	margin-left: 5px;
+}
+
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+
+	border-bottom: 5px solid black;
+}
+
+.arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid black;
+}
