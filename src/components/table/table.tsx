@@ -1,10 +1,12 @@
 import { User } from '../../types';
 import styles from './table.module.css';
 import bindStyles from 'classnames/bind';
+import { highlighter } from '../../utils';
 
 type TableProps = {
 	data: User[];
 	order: string;
+	input: string;
 	currentUserIndex: number;
 	headerClick: (name: string) => void;
 	rowClick: (index: number) => void;
@@ -45,6 +47,7 @@ export const Table: React.FC<TableProps> = ({
 	order,
 	currentUserIndex,
 	rowClick,
+	input,
 }) => {
 	return (
 		<table className={styleNames('table')}>
@@ -75,8 +78,12 @@ export const Table: React.FC<TableProps> = ({
 						)}
 						onClick={() => rowClick(i)}>
 						<td className={styleNames('td')}>{id}</td>
-						<td className={styleNames('td')}>{firstName}</td>
-						<td className={styleNames('td')}>{lastName}</td>
+						<td className={styleNames('td')}>
+							{input.length === 0 ? firstName : highlighter(firstName, input)}
+						</td>
+						<td className={styleNames('td')}>
+							{input.length === 0 ? lastName : highlighter(lastName, input)}
+						</td>
 						<td className={styleNames('td')}>{email}</td>
 						<td className={styleNames('td')}>{phone}</td>
 						<td className={styleNames('td')}>{adress.state}</td>

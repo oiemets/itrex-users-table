@@ -1,8 +1,16 @@
 .root {
-	width: 90%;
+	width: 95%;
 	margin: 0 auto;
+	padding: 30px;
+}
+
+.headerTitle {
+	text-transform: uppercase;
 }
 
 .header {
-	text-transform: uppercase;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
 }

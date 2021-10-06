@@ -1,0 +1,47 @@
+.root {
+	border: 2px solid #1abc9c;
+	padding: 10px;
+	width: 50%;
+}
+
+.title {
+	text-align: center;
+	background: #1abc9c;
+	font-size: 20px;
+	color: white;
+	text-transform: uppercase;
+	box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.5),
+		0px 1px 0px rgba(255, 255, 255, 0.8);
+	text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.descList {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.descItem {
+	width: 50%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.dt,
+.dd {
+	margin: 0;
+	padding: 0;
+}
+
+.dt {
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.dd {
+	font-size: 18px;
+	font-style: italic;
+}

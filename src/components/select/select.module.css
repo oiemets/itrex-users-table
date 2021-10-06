@@ -1,0 +1,10 @@
+.root {
+	padding-right: 10px;
+}
+
+.select {
+	border: 1px solid rgb(160, 160, 160);
+	border-radius: 8px;
+	font-size: 16px;
+	padding: 5px;
+}
