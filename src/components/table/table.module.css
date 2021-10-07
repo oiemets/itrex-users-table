@@ -63,3 +63,21 @@
 	border-right: 5px solid transparent;
 	border-top: 5px solid black;
 }
+
+@media (max-width: 1000px) {
+	.th {
+		font-weight: 400;
+		font-size: small;
+	}
+
+	.td {
+		font-size: small;
+	}
+
+	.arrow {
+		display: inline-block;
+		position: unset;
+		bottom: 0;
+		margin-left: 0px;
+	}
+}

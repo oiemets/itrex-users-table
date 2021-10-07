@@ -9,3 +9,21 @@
 .input:focus {
 	outline: none;
 }
+
+@media (max-width: 1000px) {
+	.input {
+		width: 50%;
+	}
+}
+
+@media (max-width: 768px) {
+	.input {
+		width: 70%;
+	}
+}
+
+@media (max-width: 640px) {
+	.input {
+		width: 100%;
+	}
+}

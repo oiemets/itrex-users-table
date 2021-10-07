@@ -45,3 +45,16 @@
 	font-size: 18px;
 	font-style: italic;
 }
+
+@media (max-width: 1000px) {
+	.root {
+		width: 100%;
+	}
+}
+
+@media (max-width: 640px) {
+	.descItem {
+		flex-flow: column wrap;
+		align-items: center;
+	}
+}
